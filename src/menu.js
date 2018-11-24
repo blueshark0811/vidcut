@@ -4,8 +4,8 @@ const defaultMenu = require('electron-default-menu');
 const { Menu } = electron;
 const { dialog } = electron;
 
-const homepage = 'https://github.com/mifi/lossless-cut';
-const releasesPage = 'https://github.com/mifi/lossless-cut/releases';
+const homepage = 'https://github.com/mazeit/vidcut';
+const releasesPage = 'https://github.com/mazeit/vidcut/releases';
 
 module.exports = (app, mainWindow, newVersion) => {
   const menu = defaultMenu(app, electron.shell);

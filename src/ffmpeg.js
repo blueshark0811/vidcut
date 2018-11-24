@@ -68,7 +68,6 @@ async function cut({
 
   const cutDuration = cutToApparent - cutFrom;
 
-  // https://github.com/mifi/lossless-cut/issues/50
   const cutFromArgs = cutFrom === 0 ? [] : ['-ss', cutFrom];
   const cutToArgs = cutTo === undefined || cutTo === videoDuration ? [] : ['-t', cutDuration];
 
@@ -143,10 +142,6 @@ async function html5ify(filePath, outPath, encodeVideo) {
  */
 function mapFormat(requestedFormat) {
   switch (requestedFormat) {
-    // These two cmds produce identical output, so we assume that encoding "ipod" means encoding m4a
-    // ffmpeg -i example.aac -c copy OutputFile2.m4a
-    // ffmpeg -i example.aac -c copy -f ipod OutputFile.m4a
-    // See also https://github.com/mifi/lossless-cut/issues/28
     case 'm4a': return 'ipod';
     case 'aac': return 'ipod';
     default: return requestedFormat;
